@@ -172,4 +172,154 @@ describe ProductsController do
     end
   end
 
+# --------------------------共享用例,辅助宏---------------------------------
+  # shared_examples("public access to products") do
+  #   describe "GET index" do
+  #     it "assigns all products as @products" do
+  #       product = FactoryGirl.create(:product)
+  #       get :index
+  #       expect(assigns(:products)).to match_array([product])
+  #     end
+
+  #     it "renders the index view" do
+  #       get :index
+  #       expect(response).to render_template :index
+  #     end
+  #   end
+  # end
+
+  # shared_examples("full access to products") do
+  #   describe "GET show" do
+  #     it "assigns the requested product as @product" do
+  #       product = FactoryGirl.create(:product)
+  #       get :show, id: product
+  #       expect(assigns(:product)).to eq(product)
+  #     end
+
+  #     it "renders the show view" do
+  #       product = FactoryGirl.create(:product)
+  #       get :show, id: product
+  #       expect(response).to render_template :show
+  #     end
+  #   end
+
+  #   describe "GET new"
+  #   describe "GET edit"
+  #   # and so on...
+  # end
+
+  # shared_examples("guest access to products") do
+  #   describe "get #new" do
+  #     it "should login" do
+  #       get :new
+  #       expect(response).to redirect_to login_url
+  #     end
+  #   end
+
+  #   describe "get #edit" do
+  #     it "should login" do
+  #       product = FactoryGirl.create(:product)
+  #       get :edit, id: product
+  #       expect(response).to redirect_to login_url
+  #     end
+  #   end
+  #   # and so on...
+  # end
+
+  # describe "admin access" do
+  #   before :each do
+  #     # user = FactoryGirl.create(:admin)
+  #     # session[:user_id] = user.id
+  #     set_user_session FactoryGirl.create(:admin)
+  #   end
+
+  #   it_behaves_like "public access to products"
+  #   it_behaves_like "full access to products"
+  # end
+
+  # describe "user access" do
+  #   before :each do
+  #     # user = FactoryGirl.create(:user)
+  #     # session[:user_id] = user.id
+  #     set_user_session FactoryGirl.create(:user)
+  #   end
+
+  #   it_behaves_like "public access to products"
+  #   it_behaves_like "full access to products"
+  # end
+
+  # describe "guest access" do
+  #   it_behaves_like "public access to products"
+  #   it_behaves_like "guest access to products"
+  # end
+# --------------------------共享用例---------------------------------
+
+# ------------------------用户权限测试-------------------------------
+  # describe "admin access" do
+  #   before :each do
+  #     user = FactoryGirl.create(:admin)
+  #     session[:user_id] = user.id
+  #   end
+
+  #   describe "get #index" # same as before
+  #   describe "get #show"
+  #   # and so on...
+  # end
+
+  # describe "user access" do
+  #   before :each do
+  #     user = FactoryGirl.create(:user)
+  #     session[:user_id] = user.id
+  #   end
+
+  #   describe "get #index" # same as before
+  #   describe "get #show"
+  #   # and so on...
+  # end
+
+  # describe "guest access" do
+  #   describe "get #index" # same as before
+  #   describe "get #new" do
+  #     it "should login" do
+  #       get :new
+  #       expect(response).to redirect_to login_url
+  #     end
+  #   end
+
+  #   describe "get #edit" do
+  #     it "should login" do
+  #       product = FactoryGirl.create(:product)
+  #       get :edit, id: product
+  #       expect(response).to redirect_to login_url
+  #     end
+  #   end
+  #   # and so on...
+  # end
+# ------------------------用户权限测试-------------------------------
+
+# ------------------------导出文件-------------------------------
+  # describe "CSV output" do
+  #   it "returns a CSV file" do
+  #     get :index, format: :csv
+  #     expect(response.headers['Content-Type']).to have_content 'text/csv'
+  #   end
+
+  #   it "returns content" do
+  #     FactoryGirl.create(:product)
+  #     get :index, format: :csv
+  #     expect(response.body).to have_content "test_product,test_url,9.99"
+  #   end
+  # end
+# ------------------------导出文件-------------------------------
+
+# ------------------------嵌套路由-------------------------------
+  # describe "reviews#show" do
+  #   it "renders the show template for the reviews" do
+  #     product = FactoryGirl.create(:product)
+  #     review = FactoryGirl.create(:review, product: product)
+  #     get :show, id: phone, product_id: product.id
+  #     expect(response).to render_template :show
+  #   end
+  # end
+# ------------------------嵌套路由-------------------------------
 end

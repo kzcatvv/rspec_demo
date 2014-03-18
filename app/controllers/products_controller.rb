@@ -5,6 +5,15 @@ class ProductsController < ApplicationController
   # GET /products.json
   def index
     @products = Product.all
+
+    respond_to do |format|
+      format.html # index.html.erb
+      format.csv do
+        send_data Product.to_csv(@products),
+        type: 'text/csv; charset=iso-8859-1; header=present',
+        disposition: 'attachment; filename=products.csv'
+      end
+    end
   end
 
   # GET /products/1
